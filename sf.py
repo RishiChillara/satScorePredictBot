@@ -22,7 +22,7 @@ def bot_login():
 
 def run_bot(r, comments_replied_to):
 
-	for comment in r.subreddit('sat').comments():
+	for comment in r.subreddit('Sat').comments():
 		num_in_string = [int(s) for s in comment.body.split() if s.isdigit()]
 		length_of_string = len(num_in_string)
 			
@@ -49,9 +49,9 @@ def run_bot(r, comments_replied_to):
 
 
 
-	print ("Sleeping for 5 seconds...")
+	print ("Sleeping for 1 seconds...")
 	#Sleep for 10 seconds...
-	time.sleep(5)
+	time.sleep(1)
 
 
 
@@ -68,10 +68,9 @@ def get_saved_comments():
 	return comments_replied_to
 
 comments_replied_to = get_saved_comments()
-print (comments_replied_to)
 
+r = bot_login()
 while True:
-	r = bot_login()
 	run_bot(r, comments_replied_to)
 	#Logging in each time to prevent request timeout
 
